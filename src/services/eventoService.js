@@ -2,7 +2,7 @@ import axios from "axios";
 
 const getEventos = async (setEventos) => {
     try {
-        await axios.get('http://127.0.0.1:5001/eventos/').then((result) => {
+        await axios.get('https://ing-web-p3-backend.vercel.app/eventos/').then((result) => {
             setEventos(result.data.eventos);
         })
     } catch (error) {
@@ -12,7 +12,7 @@ const getEventos = async (setEventos) => {
 
 const getEventoById = async (setEventos, idEvento) => {
     try {
-        await axios.get('http://127.0.0.1:5001/eventos/' + idEvento).then((result) => {
+        await axios.get('https://ing-web-p3-backend.vercel.app/eventos/' + idEvento).then((result) => {
             setEventos(result.data.evento);
         })
     } catch (error) {
@@ -22,7 +22,7 @@ const getEventoById = async (setEventos, idEvento) => {
 
 const getEventosCercaCodPostal = async (setEventos, codPostal) => {
     try {
-        await axios.get('http://127.0.0.1:5001/eventos?codPostal=' + codPostal).then((result) => {
+        await axios.get('https://ing-web-p3-backend.vercel.app/eventos?codPostal=' + codPostal).then((result) => {
             setEventos(result.data.eventos);
         })
     } catch (error) {
@@ -33,7 +33,7 @@ const getEventosCercaCodPostal = async (setEventos, codPostal) => {
 const crearNuevoEvento = async (token, data, imageURL) => {
     try {
         console.log(token)
-        await axios.post('http://127.0.0.1:5001/eventos/', 
+        await axios.post('https://ing-web-p3-backend.vercel.app/eventos/', 
             {
                 nombre: data.nombre,
                 timestamp: data.fecha,
