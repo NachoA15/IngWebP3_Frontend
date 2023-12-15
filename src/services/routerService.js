@@ -3,10 +3,10 @@ const moveToMainPage = () => {
     window.location.href = '/'
 }
 
-const moveToMaps = () => {
-    window.location.href = '/map'
+const moveToPaginaEvento = (idEvento) => {
+    window.location.href = '/evento/' + idEvento
 }
 
-const routerService = {moveToMainPage, moveToMaps}
+const routerService = {moveToMainPage, moveToPaginaEvento}
 
 export default routerService

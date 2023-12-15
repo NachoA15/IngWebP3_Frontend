@@ -1,8 +1,8 @@
 import React, { createRef, useEffect, useState } from 'react';
 import { TextField, } from '@mui/material';
-import Navbar from '../Navbar'
 
 export default function DataForm({ setFilled, setData }) {
+  const usuarioLogueado = localStorage.getItem('email')
   const [selectedDate, setSelectedDate] = useState('');
 
   const handleDateChange = (date) => {
@@ -17,17 +17,14 @@ export default function DataForm({ setFilled, setData }) {
             <form onSubmit={(e) => {
                 e.preventDefault();
                 const nombre = document.getElementById('nombre').value;
-                const precio = document.getElementById('precio').value;
                 const codPostal = document.getElementById('codPostal').value;
                 const fecha = selectedDate;
-                const descripcion = document.getElementById('descripcion').value;
 
                 let data = {
                   nombre: nombre,
-                  precio: precio,
+                  fecha: fecha,
                   codPostal: codPostal,
-                  fecha: selectedDate,
-                  descripcion: descripcion
+                  organizador: usuarioLogueado
                 }
 
                 setData(data);
@@ -39,7 +36,7 @@ export default function DataForm({ setFilled, setData }) {
                 <div className="card bg-light">
                   <div className="card-body">
                     <div className="row text-center">
-                      <h3 className="card-title" tabIndex="0">Introduzca la información del producto:</h3>
+                      <h3 className="card-title" tabIndex="0">Introduzca la información del evento:</h3>
                       <h6 tabIndex="0">Los campos obligatorios se muestran con un asterisco (*)</h6>
                     </div>
 
@@ -52,7 +49,7 @@ export default function DataForm({ setFilled, setData }) {
                           <TextField
                             required
                             id="nombre"
-                            label="Nombre del producto"
+                            label="Nombre del evento"
                             variant="standard"
                             size="small"
                           />
@@ -67,13 +64,15 @@ export default function DataForm({ setFilled, setData }) {
                       <div className="col-md-2"></div>
                       <div className="col-md-8">
                         <div>
+                        Fecha del evento: &nbsp;
                           <TextField
                             required
-                            id="precio"
-                            label="Precio del producto"
+                            id="fechaEvento"
+                            type="date"
+                            value={selectedDate}
+                            onChange={(e) => handleDateChange(e.target.value)}
                             variant="standard"
-                            size="medium"
-                            inputProps={{ inputMode: 'numeric', pattern: '[0-9,.]*' }}
+                            size="small"
                           />
                         </div>
                       </div>
@@ -93,45 +92,6 @@ export default function DataForm({ setFilled, setData }) {
                             variant="standard"
                             size="small"
                             inputProps={{ inputMode: 'numeric', pattern: '[0-9,.]*' }}
-                          />
-                        </div>
-                      </div>
-                      <div className="col-md-2"></div>
-                    </div>
-
-                    <br />
-
-                    <div className="row text-left">
-                      <div className="col-md-2"></div>
-                      <div className="col-md-8">
-                        <div>
-                          <TextField
-                            required
-                            id="fechaCierre"
-                            //label="Fecha de Cierre"
-                            type="date"
-                            value={selectedDate}
-                            onChange={(e) => handleDateChange(e.target.value)}
-                            variant="standard"
-                            size="small"
-                          />
-                        </div>
-                      </div>
-                      <div className="col-md-2"></div>
-                    </div>
-
-                    <br />
-
-                    <div className="row text-left">
-                      <div className="col-md-2"></div>
-                      <div className="col-md-8">
-                        <div>
-                          <TextField
-                            id="descripcion"
-                            label="Descripción del producto"
-                            size="medium"
-                            multiline
-                            rows={5}
                           />
                         </div>
                       </div>

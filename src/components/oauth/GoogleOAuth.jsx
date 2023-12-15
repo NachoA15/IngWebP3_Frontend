@@ -32,8 +32,6 @@ export default function GoogleOAuth() {
             }
         }).then((res) => {
             setProfile(res.data);
-            console.log(user)
-            console.log(res.data)
             localStorage.setItem('email', res.data.email)
             localStorage.setItem('token', user.access_token)
         }).catch((err) => console.log(err));

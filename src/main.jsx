@@ -3,22 +3,23 @@ import ReactDOM from 'react-dom/client'
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import App from './components/App'
-import SubirProducto from './components/pages/SubirProducto';
-import Mapa from './components/pages/Mapa'
+import SubirEvento from './components/pages/SubirEvento';
+import Principal from './components/pages/Principal';
+import PaginaEvento from './components/pages/PaginaEvento';
 import './assets/css/index.css'
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <App />
+    element: <Principal />
   },
   {
     path: '/upload',
-    element: <SubirProducto />
+    element: <SubirEvento />
   },
   {
-    path: '/map',
-    element: <Mapa />
+    path: '/evento/:id',
+    element: <PaginaEvento />
   }
 ])
 

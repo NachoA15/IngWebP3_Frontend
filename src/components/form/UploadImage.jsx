@@ -13,7 +13,7 @@ export default function UploadImage({setFilled, setData, setImageURL}) {
                             <div className="card-body">
                                 <div className="row text-center">
                                     <h3 className="card-title" tabIndex="0">Suba la imagen que desee</h3>
-                                    <h6 tabIndex="0">Posteriormente se creará el producto</h6>
+                                    <h6 tabIndex="0">Posteriormente se creará el evento</h6>
                                 </div>
 
                                 <br />
